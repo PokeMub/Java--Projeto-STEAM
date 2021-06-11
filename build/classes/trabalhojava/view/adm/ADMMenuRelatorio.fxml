@@ -5,7 +5,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="470.0" prefWidth="595.0" style="-fx-background-color: #EBEBEA;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trabalhojava.controller.adm.ADMMenuRelatorioController">
    <children>
-      <Button layoutX="47.0" layoutY="34.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="276.0" text="Relatorio de Jogos por Genero" />
-      <Button layoutX="47.0" layoutY="139.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="276.0" text="Relatorio de Todos os jogos" />
+      <Button fx:id="buttonGeneroJogos" layoutX="47.0" layoutY="34.0" mnemonicParsing="false" onAction="#clicarButtonCategotia" prefHeight="78.0" prefWidth="276.0" text="Relatorio de Jogos por Genero" />
+      <Button fx:id="buttonTodosJogos" layoutX="47.0" layoutY="139.0" mnemonicParsing="false" onAction="#clicarButtonTodos" prefHeight="78.0" prefWidth="276.0" text="Relatorio de Todos os jogos" />
    </children>
 </AnchorPane>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="470.0" prefWidth="595.0" style="-fx-background-color: #EBEBEA;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trabalhojava.controller.adm.ADMMenuRelatorioTodosJogosController">
+   <children>
+      <TableView layoutX="-2.0" prefHeight="470.0" prefWidth="601.0">
+        <columns>
+          <TableColumn prefWidth="177.0" text="Nome" />
+          <TableColumn prefWidth="94.0" text="Genero" />
+            <TableColumn prefWidth="94.0" text="QTD Vendidos" />
+            <TableColumn prefWidth="127.0" text="Data de Lançamento" />
+            <TableColumn prefWidth="108.0" text="Valor Atual" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

@@ -6,23 +6,20 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="470.0" prefWidth="595.0" style="-fx-background-color: #EBEBEA;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" prefHeight="470.0" prefWidth="595.0" style="-fx-background-color: #EBEBEA;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trabalhojava.controller.adm.ADMMenuCadastroFuncionarioController">
    <children>
       <TableView prefHeight="413.0" prefWidth="595.0">
         <columns>
-          <TableColumn prefWidth="195.0" text="Nome" />
-          <TableColumn prefWidth="75.0" text="ID" />
-            <TableColumn prefWidth="117.0" text="Valor" />
-            <TableColumn prefWidth="104.0" text="Genero" />
-            <TableColumn prefWidth="103.0" text="QTD Vendidos" />
+          <TableColumn prefWidth="400.0" text="Nome" />
+            <TableColumn prefWidth="194.0" text="CPF" />
         </columns>
       </TableView>
-      <Button layoutX="34.0" layoutY="423.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="105.0" text="Inserir">
+      <Button fx:id="buttonInserir" layoutX="34.0" layoutY="423.0" mnemonicParsing="false" onAction="#clicarButtonInserir" prefHeight="33.0" prefWidth="105.0" text="Inserir">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="245.0" layoutY="423.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="105.0" text="Alterar">
+      <Button fx:id="buttonAlterar" layoutX="245.0" layoutY="423.0" mnemonicParsing="false" onAction="#clicarButtonAlterar" prefHeight="33.0" prefWidth="105.0" text="Alterar">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font>

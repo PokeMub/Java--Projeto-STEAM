@@ -16,9 +16,11 @@ public class DatabasePostgreSQL implements Database {
         try {
             Class.forName("org.postgresql.Driver");
             // acredito q o erro e uma dessa duas linha a de cima e a de baixo \/   /\
+            
             this.connection = DriverManager.getConnection("jdbc:postgresql://209.209.40.83:34449/nome", "admin","12345678");
             //this.connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1/DataBase_STJO", "lucas","123");
-     
+            // conectar no banco local
+            
             return this.connection; //não ta retonado 
         } catch (SQLException | ClassNotFoundException ex) {
             //se comenta a linha de baixo não aparece o erro escrito mas n funcionar de qualquer geito pois aki e o catch

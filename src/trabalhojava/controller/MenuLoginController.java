@@ -18,6 +18,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafxtrabalhopoo.model.dao.UsuarioDao;
+import javafxtrabalhopoo.model.database.Database;
+import javafxtrabalhopoo.model.database.DatabaseFactory;
+import javafxtrabalhopoo.model.domain.Usuario;
 
 /**
  * FXML Controller class
@@ -37,13 +41,29 @@ public class MenuLoginController implements Initializable {
     @FXML
     private TextField textFieldSenha;
 
-    /*
+    
     private final Database database = DatabaseFactory.getDatabase("postgresql");
+    // o erro ocorre na linha de baixo \/ pois o valor que a linha de cima retornou não foi o q tinha q retona
     private final Connection connection = database.conectar();
-     */
+    
+    private final UsuarioDao usuarioDao = new UsuarioDao();
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        System.out.println("Iniciando");
+        
+        /*teste se ta funcionado pode apaga depois \/\/ */
+        try {
+            usuarioDao.setConnection(connection);
+            Usuario usuario = new Usuario();
+            usuario.setNomeUsuario("Fabricio");
+            usuario = usuarioDao.buscar(usuario);
+            System.out.println("Nome: " + usuario.getNomeUsuario());
+            System.out.println("CPF: " + usuario.getCpf());
+            System.out.println("Status: " + usuario.getStatus());
+        } catch (Exception e) {
+            System.out.println("ERRO: " + e);
+        }
     }
 
     @FXML

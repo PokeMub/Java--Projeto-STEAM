@@ -1,5 +1,5 @@
 
-package javafxmvc.model.database;
+package javafxtrabalhopoo.model.database;
 
 import java.sql.Connection;
 

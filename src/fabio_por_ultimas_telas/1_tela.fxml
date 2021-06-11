@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="470.0" prefWidth="595.0" style="-fx-background-color: #EBEBEA;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trabalhojava.controller.JogoController">
+   <children>
+      <Pane layoutY="380.0" prefHeight="90.0" prefWidth="595.0" style="-fx-background-color: #44a1a0;">
+         <children>
+            <Button fx:id="buttonConecta2" layoutX="402.0" layoutY="14.0" mnemonicParsing="false" onAction="#clicaButtonConectar" style="-fx-background-radius: 70; -fx-border-radius: 50;" text="Alterar Genero">
+               <font>
+                  <Font name="System Bold Italic" size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="buttonConecta3" layoutX="84.0" layoutY="14.0" mnemonicParsing="false" onAction="#clicaButtonConectar" style="-fx-background-radius: 70; -fx-border-radius: 50;" text="Inserir Genero">
+               <font>
+                  <Font name="System Bold Italic" size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="buttonConecta" layoutX="269.0" layoutY="45.0" mnemonicParsing="false" onAction="#clicaButtonConectar" style="-fx-background-radius: 70; -fx-border-radius: 50;" text="Voltar">
+               <font>
+                  <Font name="System Bold Italic" size="13.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <TableView prefHeight="382.0" prefWidth="595.0">
+        <columns>
+          <TableColumn prefWidth="376.0" text="Nome" />
+          <TableColumn prefWidth="137.0" text="Descrição" />
+            <TableColumn prefWidth="81.0" text="ID" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="Relatorio">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Relatorio de Jogos Comprados" />
+                  <MenuItem mnemonicParsing="false" text="Relatorio de genero de Jogo" />
+               </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Minhas Informaçoes">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Minha biblioteca" />
+                  <MenuItem mnemonicParsing="false" text="Perfil" />
+                  <MenuItem mnemonicParsing="false" text="Carteira" />
+               </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="jogos Comprar" />
+        </menus>
+      </MenuBar>
+      <AnchorPane />
+      <Label text="Informaçoes para compra de STJO Points" />
+      <Label text="numero do cartao" />
+      <Label text="validade" />
+      <Label text="cod seguracao" />
+      <Label text="nome completo" />
+      <Label text="cpf" />
+      <Label text="data nascimento" />
+      <Label text="telefone" />
+      <Label text="Valor" />
+      <Button mnemonicParsing="false" text="Comprar" />
+   </children>
+</VBox>

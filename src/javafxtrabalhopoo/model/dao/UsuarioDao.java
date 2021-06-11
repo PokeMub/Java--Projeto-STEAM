@@ -28,11 +28,12 @@ public class UsuarioDao {
             stmt.setString(1, usuario.getNomeUsuario());
             ResultSet resultado = stmt.executeQuery();
             if (resultado.next()) {
+               
                 usuario.setNomeUsuario(resultado.getString("nome_usuario"));
-                usuario.setSenha(resultado.getString("nome_usuario"));
-                usuario.setStatus(resultado.getString("status").charAt(0));
+                usuario.setSenha(resultado.getString("senha"));
+                usuario.setStatus(resultado.getString("statu").charAt(0));
                 usuario.setCpf(resultado.getString("cpf"));
-                usuario.setTelefone(resultado.getString("telefone"));
+                usuario.setTelefone(resultado.getString("tel"));
                 retorno = usuario;
             }
         } catch (SQLException ex) {
@@ -40,4 +41,5 @@ public class UsuarioDao {
         }
         return retorno;
     }
+    
 }

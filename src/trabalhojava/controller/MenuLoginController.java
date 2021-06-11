@@ -53,7 +53,9 @@ public class MenuLoginController implements Initializable {
         System.out.println("Iniciando");
         
         /*teste se ta funcionado pode apaga depois \/\/ */
+    
         try {
+            
             usuarioDao.setConnection(connection);
             Usuario usuario = new Usuario();
             usuario.setNomeUsuario("Fabricio");
@@ -61,11 +63,12 @@ public class MenuLoginController implements Initializable {
             System.out.println("Nome: " + usuario.getNomeUsuario());
             System.out.println("CPF: " + usuario.getCpf());
             System.out.println("Status: " + usuario.getStatus());
+            
         } catch (Exception e) {
             System.out.println("ERRO: " + e);
         }
     }
-
+      
     @FXML
     public void clicaButtonSair() {
         Stage stage = (Stage) buttonSair.getScene().getWindow();

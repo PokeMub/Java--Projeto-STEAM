@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="470.0" prefWidth="595.0" style="-fx-background-color: #EBEBEA;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trabalhojava.controller.MenuUsuarioRelatorioController">
+   <children>
+      <ComboBox layoutX="223.0" layoutY="14.0" prefWidth="150.0" promptText="Genero Do Jogo" />
+      <TableView layoutY="65.0" prefHeight="405.0" prefWidth="595.0">
+        <columns>
+          <TableColumn prefWidth="176.0" text="Nome" />
+          <TableColumn prefWidth="96.0" text="Genero Do Jogo" />
+            <TableColumn prefWidth="116.0" text="Status De Reebolso" />
+            <TableColumn prefWidth="104.0" text="Valor" />
+            <TableColumn prefWidth="102.0" text="Data De Compra" />
+        </columns>
+      </TableView>
+      <CheckBox layoutX="223.0" layoutY="39.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" text="Todos os Jogos">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </CheckBox>
+      <Button layoutX="521.0" layoutY="27.0" mnemonicParsing="false" text="Imprimir" />
+   </children>
+</AnchorPane>

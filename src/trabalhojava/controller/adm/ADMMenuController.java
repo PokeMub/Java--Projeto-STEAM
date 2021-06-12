@@ -17,6 +17,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafxtrabalhopoo.model.domain.Usuario;
 
 /**
  * FXML Controller class
@@ -36,6 +37,8 @@ public class ADMMenuController implements Initializable {
     @FXML
     private AnchorPane anchorPaneMenu;
 
+    
+    private Usuario usuario;
     /*
     private final Database database = DatabaseFactory.getDatabase("postgresql");
     private final Connection connection = database.conectar();
@@ -95,6 +98,10 @@ public class ADMMenuController implements Initializable {
         } catch (IOException e) {
             System.out.println("Erro no FXMLVBoxMainController " + e);
         }
+    }
+    
+    public void setUsuario(Usuario usuario){
+        this.usuario = usuario;
     }
     
 }

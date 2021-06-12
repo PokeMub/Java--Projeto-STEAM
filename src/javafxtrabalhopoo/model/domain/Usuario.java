@@ -118,6 +118,6 @@ public class Usuario {
         this.valorCarteira = valorCarteira;
     }
     
-    
+   
     
 }

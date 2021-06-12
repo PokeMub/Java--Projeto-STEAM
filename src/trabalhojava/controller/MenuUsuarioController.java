@@ -17,6 +17,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafxtrabalhopoo.model.domain.Usuario;
 
 /**
  * FXML Controller class
@@ -38,13 +39,15 @@ public class MenuUsuarioController implements Initializable {
     @FXML
     private AnchorPane anchorPaneMenu;
 
+    
+    private Usuario usuario;
     /*
     private final Database database = DatabaseFactory.getDatabase("postgresql");
     private final Connection connection = database.conectar();
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
     }
 
     @FXML
@@ -70,8 +73,28 @@ public class MenuUsuarioController implements Initializable {
     @FXML
     public void clicarButtonInformacoes() throws IOException {
         try {
-            AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/trabalhojava/view/MenuUsuarioInformacoesUsuario.fxml"));
-            anchorPaneMenu.getChildren().setAll(a);
+            
+            System.out.println("usuario: "+ usuario.getEmail());
+         
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MenuUsuarioInformacoesUsuarioController.class.getResource("/trabalhojava/view/MenuUsuarioInformacoesUsuario.fxml"));
+            //root = FXMLLoader.load(getClass().getResource("/trabalhojava/view/MenuUsuario.fxml"));
+            AnchorPane page = (AnchorPane) loader.load();
+            MenuUsuarioInformacoesUsuarioController controller = loader.getController();
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Informações");
+            Scene scene = new Scene(page);
+            dialogStage.setScene(scene);
+
+            controller.setUsuario(usuario);
+
+            dialogStage.showAndWait();
+            
+            
+            
+            
+            //AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/trabalhojava/view/MenuUsuarioInformacoesUsuario.fxml"));
+            //anchorPaneMenu.getChildren().setAll(a);
         } catch (IOException e) {
             System.out.println("Erro no FXMLVBoxMainController " + e);
         }
@@ -109,4 +132,13 @@ public class MenuUsuarioController implements Initializable {
             System.out.println("Erro no FXMLVBoxMainController " + e);
         }
     }
+    
+    public void setUsuario(Usuario usuario){
+        this.usuario = usuario;
+    }
+    
+    
+    
+    
 }
+

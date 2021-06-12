@@ -22,6 +22,7 @@ import javafxtrabalhopoo.model.dao.UsuarioDao;
 import javafxtrabalhopoo.model.database.Database;
 import javafxtrabalhopoo.model.database.DatabaseFactory;
 import javafxtrabalhopoo.model.domain.Usuario;
+import trabalhojava.controller.adm.ADMMenuController;
 
 /**
  * FXML Controller class
@@ -29,6 +30,8 @@ import javafxtrabalhopoo.model.domain.Usuario;
  * @author fabri
  * @author info
  */
+
+
 public class MenuLoginController implements Initializable {
 
     @FXML
@@ -91,34 +94,69 @@ public class MenuLoginController implements Initializable {
             Usuario usuario = new Usuario();
 
             usuario.setEmail(textFieldLogin.getText());
-
+            
             usuario = usuarioDao.buscarEmail(usuario);
-
+            
             System.out.println(usuario.getEmail());
             System.out.println(usuario.getSenha());
             System.out.println(usuario.getStatus());
+            System.out.println(""+ usuario.getTelefone());
 
             if ((usuario.getEmail().equals(textFieldLogin.getText())) && (usuario.getSenha().equals(textFieldSenha.getText()))) {
                 try {
 
-                    Parent root = null;
+                    //Parent root = null;
+                    FXMLLoader loader = new FXMLLoader();
+                    
                     if (usuario.getStatus() == 'a') {
+                        loader.setLocation(ADMMenuController.class.getResource("/trabalhojava/view/adm/ADMMenu.fxml"));
+                        //root = FXMLLoader.load(getClass().getResource("/trabalhojava/view/adm/ADMMenu.fxml"));
+                        AnchorPane page = (AnchorPane) loader.load();
+                        ADMMenuController controller = loader.getController();
+                        Stage dialogStage = new Stage();
+                        dialogStage.setTitle("Compra Jogo");
+                        Scene scene = new Scene(page);
+                        
+                        controller.setUsuario(usuario);
 
-                        root = FXMLLoader.load(getClass().getResource("/trabalhojava/view/adm/ADMMenu.fxml"));
+                        dialogStage.showAndWait();
+                    dialogStage.showAndWait();
 
                     } else {
+                        loader.setLocation(MenuUsuarioController.class.getResource("/trabalhojava/view/MenuUsuario.fxml"));
+                        //root = FXMLLoader.load(getClass().getResource("/trabalhojava/view/MenuUsuario.fxml"));
+                        AnchorPane page = (AnchorPane) loader.load();
+                        MenuUsuarioController controller = loader.getController();
+                        Stage dialogStage = new Stage();
+                        dialogStage.setTitle("Compra Jogo");
+                        Scene scene = new Scene(page);
+                        dialogStage.setScene(scene);
+                         
+                        controller.setUsuario(usuario);
 
-                        root = FXMLLoader.load(getClass().getResource("/trabalhojava/view/MenuUsuario.fxml"));
+                        dialogStage.showAndWait();
 
                     }
 
+                    
+                    
+                    
+
+                    
+                
+                     
+
+                   
+                    
+                    
+                    /*
                     Stage stage = new Stage();
                     Scene scene = new Scene(root);
                     stage.setScene(scene);
                     stage.show();
 
                     clicaButtonSair();
-
+                        */
                 } catch (IOException e) {
                     System.out.println("ERRO LoginController: " + e);
                 }
@@ -131,5 +169,7 @@ public class MenuLoginController implements Initializable {
         }
 
     }
+    
+    
 
 }

@@ -27,6 +27,10 @@ public class ADMMenuCadastroController implements Initializable {
     private Button buttonFuncionario;
     @FXML
     private Button buttonProdutos;
+    @FXML
+    private Button buttonEvento;
+    @FXML
+    private Button buttonGenero;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -73,4 +77,43 @@ public class ADMMenuCadastroController implements Initializable {
         }
     }
     
+    @FXML
+    public void clicarButtonEvento() throws IOException {
+        
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/trabalhojava/view/adm/ADMMenuCadastroEvento.fxml"));
+
+            Stage stage = new Stage();
+
+            Scene scene = new Scene(root);
+
+            stage.setScene(scene);
+            stage.show();
+
+       
+
+        } catch (IOException e) {
+            System.out.println("ERRO RegistroController: " + e);
+        }
+    }
+    
+    @FXML
+    public void clicarButtonGenero() throws IOException {
+        
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/trabalhojava/view/adm/ADMMenuCadastroGenero.fxml"));
+
+            Stage stage = new Stage();
+
+            Scene scene = new Scene(root);
+
+            stage.setScene(scene);
+            stage.show();
+
+       
+
+        } catch (IOException e) {
+            System.out.println("ERRO RegistroController: " + e);
+        }
+    }
 }

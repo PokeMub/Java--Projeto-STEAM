@@ -21,23 +21,22 @@ import javafx.stage.Stage;
  *
  * @author fabio
  */
-public class ADMMenuGraficosController implements Initializable {
+public class ADMMenuCadastroEventoController implements Initializable {
 
     @FXML
-    private Button buttonTodosJogos;
+    private Button buttonInserir;
     @FXML
-    private Button buttonGeneroJogos;
+    private Button buttonAlterar;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
     
-    @FXML
-    public void clicarButtonCategotia() throws IOException {
+    public void clicarButtonInserir() throws IOException {
         
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/trabalhojava/view/adm/ADMMenuGraficosGeneroJogos.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/trabalhojava/view/adm/ADMMenuCadastroEventoInserir.fxml"));
 
             Stage stage = new Stage();
 
@@ -53,11 +52,10 @@ public class ADMMenuGraficosController implements Initializable {
         }
     }
     
-    @FXML
-    public void clicarButtonTodos() throws IOException {
+    public void clicarButtonAlterar() throws IOException {
         
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/trabalhojava/view/adm/ADMMenuGraficosTodosJogos.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/trabalhojava/view/adm/ADMMenuCadastroEventoAlterar.fxml"));
 
             Stage stage = new Stage();
 

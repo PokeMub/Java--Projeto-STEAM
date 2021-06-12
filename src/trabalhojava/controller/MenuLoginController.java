@@ -27,6 +27,7 @@ import javafxtrabalhopoo.model.domain.Usuario;
  * FXML Controller class
  *
  * @author fabri
+ * @author info
  */
 public class MenuLoginController implements Initializable {
 
@@ -41,34 +42,19 @@ public class MenuLoginController implements Initializable {
     @FXML
     private TextField textFieldSenha;
 
-    
     private final Database database = DatabaseFactory.getDatabase("postgresql");
     // o erro ocorre na linha de baixo \/ pois o valor que a linha de cima retornou não foi o q tinha q retona
     private final Connection connection = database.conectar();
-    
+
     private final UsuarioDao usuarioDao = new UsuarioDao();
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         System.out.println("Iniciando");
-        
+
         /*teste se ta funcionado pode apaga depois \/\/ */
-    
-        try {
-            
-            usuarioDao.setConnection(connection);
-            Usuario usuario = new Usuario();
-            usuario.setNomeUsuario("Fabricio");
-            usuario = usuarioDao.buscar(usuario);
-            System.out.println("Nome: " + usuario.getNomeUsuario());
-            System.out.println("CPF: " + usuario.getCpf());
-            System.out.println("Status: " + usuario.getStatus());
-            
-        } catch (Exception e) {
-            System.out.println("ERRO: " + e);
-        }
     }
-      
+
     @FXML
     public void clicaButtonSair() {
         Stage stage = (Stage) buttonSair.getScene().getWindow();
@@ -98,38 +84,50 @@ public class MenuLoginController implements Initializable {
     @FXML
     public void clicaButtonConectar() throws IOException {
 
-        if ("123".equals(textFieldLogin.getText()) && "123".equals(textFieldSenha.getText())) {
-            try {
-                Parent root = FXMLLoader.load(getClass().getResource("/trabalhojava/view/adm/ADMMenu.fxml"));
+        try {
 
-                Stage stage = new Stage();
+            usuarioDao.setConnection(connection);
 
-                Scene scene = new Scene(root);
+            Usuario usuario = new Usuario();
 
-                stage.setScene(scene);
-                stage.show();
+            usuario.setEmail(textFieldLogin.getText());
 
-                clicaButtonSair();
+            usuario = usuarioDao.buscarEmail(usuario);
 
-            } catch (IOException e) {
-                System.out.println("ERRO LoginController: " + e);
+            System.out.println(usuario.getEmail());
+            System.out.println(usuario.getSenha());
+            System.out.println(usuario.getStatus());
+
+            if ((usuario.getEmail().equals(textFieldLogin.getText())) && (usuario.getSenha().equals(textFieldSenha.getText()))) {
+                try {
+
+                    Parent root = null;
+                    if (usuario.getStatus() == 'a') {
+
+                        root = FXMLLoader.load(getClass().getResource("/trabalhojava/view/adm/ADMMenu.fxml"));
+
+                    } else {
+
+                        root = FXMLLoader.load(getClass().getResource("/trabalhojava/view/MenuUsuario.fxml"));
+
+                    }
+
+                    Stage stage = new Stage();
+                    Scene scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.show();
+
+                    clicaButtonSair();
+
+                } catch (IOException e) {
+                    System.out.println("ERRO LoginController: " + e);
+                }
+            } else {
+                System.out.println("Conta Invalida");
             }
-        } else {
-            try {
-                Parent root = FXMLLoader.load(getClass().getResource("/trabalhojava/view/MenuUsuario.fxml"));
 
-                Stage stage = new Stage();
-
-                Scene scene = new Scene(root);
-
-                stage.setScene(scene);
-                stage.show();
-
-                clicaButtonSair();
-
-            } catch (IOException e) {
-                System.out.println("ERRO LoginController: " + e);
-            }
+        } catch (Exception e) {
+            System.out.println("ERRO: " + e);
         }
 
     }

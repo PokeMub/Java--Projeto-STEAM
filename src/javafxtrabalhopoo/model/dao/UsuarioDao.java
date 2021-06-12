@@ -20,20 +20,26 @@ public class UsuarioDao {
         this.connection = connection;
     }
     
-    public Usuario buscar(Usuario usuario) {
-        String sql = "SELECT * FROM usuario WHERE nome_usuario=?";
+    public Usuario buscarId(Usuario usuario) {
+        String sql = "SELECT * FROM usuario WHERE id_usuario=?";
         Usuario retorno = new Usuario();
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
-            stmt.setString(1, usuario.getNomeUsuario());
+            //stmt.setString(1, usuario.getNomeUsuario());
+            stmt.setInt(1,usuario.getIdUsuario());
             ResultSet resultado = stmt.executeQuery();
             if (resultado.next()) {
-               
+                usuario.setIdUsuario(resultado.getInt("id_usuario"));
                 usuario.setNomeUsuario(resultado.getString("nome_usuario"));
                 usuario.setSenha(resultado.getString("senha"));
                 usuario.setStatus(resultado.getString("statu").charAt(0));
                 usuario.setCpf(resultado.getString("cpf"));
+                usuario.setEmail(resultado.getString("email"));
+                usuario.setDataNascimento(resultado.getDate("data_nasc"));
                 usuario.setTelefone(resultado.getString("tel"));
+                usuario.setValorCarteira(resultado.getFloat("valor_carteira"));
+                usuario.setRestNome(resultado.getString("rest_nome"));
+                
                 retorno = usuario;
             }
         } catch (SQLException ex) {
@@ -41,5 +47,38 @@ public class UsuarioDao {
         }
         return retorno;
     }
+    
+    
+    
+    public Usuario buscarEmail(Usuario usuario) {
+        String sql = "SELECT * FROM usuario WHERE email=?";
+        Usuario retorno = new Usuario();
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, usuario.getEmail());
+
+            ResultSet resultado = stmt.executeQuery();
+            if (resultado.next()) {
+                usuario.setIdUsuario(resultado.getInt("id_usuario"));
+                usuario.setNomeUsuario(resultado.getString("nome_usuario"));
+                usuario.setSenha(resultado.getString("senha"));
+                usuario.setStatus(resultado.getString("statu").charAt(0));
+                usuario.setCpf(resultado.getString("cpf"));
+                usuario.setEmail(resultado.getString("email"));
+                usuario.setDataNascimento(resultado.getDate("data_nasc"));
+                usuario.setTelefone(resultado.getString("tel"));
+                usuario.setValorCarteira(resultado.getFloat("valor_carteira"));
+                usuario.setRestNome(resultado.getString("rest_nome"));
+
+                retorno = usuario;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UsuarioDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return retorno;
+    }
+    
+     
+    
     
 }

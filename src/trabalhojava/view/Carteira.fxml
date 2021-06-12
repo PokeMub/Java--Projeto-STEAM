@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="470.0" prefWidth="595.0" style="-fx-background-color: #EBEBEA;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16">
+   <children>
+      <Label layoutX="66.0" layoutY="25.0" text="Nome Do Portador do Cartão:">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../build/classes/trabalho/Imagens/2321232.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="14.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../build/classes/trabalho/Imagens/174480.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="66.0" layoutY="76.0" text="Numero do Cartão:">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="14.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../build/classes/trabalho/Imagens/4024074.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="57.0" layoutY="123.0" text="Codigo De Segurança:">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="14.0" layoutY="163.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../build/classes/trabalho/Imagens/4513392.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="54.0" layoutY="174.0" text="Vencimento do Cartão:">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="47.0" fitWidth="40.0" layoutX="132.0" layoutY="266.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../build/classes/trabalho/Imagens/16302.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="172.0" layoutY="226.0" text="Digite Valor a Adicionar a Sua Carteira">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <TextField layoutX="204.0" layoutY="171.0" prefHeight="25.0" prefWidth="224.0" />
+      <TextField layoutX="204.0" layoutY="120.0" prefHeight="25.0" prefWidth="224.0" />
+      <TextField layoutX="193.0" layoutY="73.0" prefHeight="25.0" prefWidth="235.0" />
+      <TextField layoutX="259.0" layoutY="22.0" prefHeight="25.0" prefWidth="168.0" />
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="407.0" layoutY="266.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../build/classes/trabalho/Imagens/16302.png" />
+         </image>
+      </ImageView>
+      <TextField layoutX="173.0" layoutY="274.0" prefHeight="31.0" prefWidth="235.0" />
+      <Button layoutX="235.0" layoutY="320.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="126.0" text="Adicionar">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

@@ -19,7 +19,7 @@
       </TableView>
       <Button fx:id="buttonInserir" layoutX="87.0" layoutY="409.0" mnemonicParsing="false" onAction="#clicarButtonInserir" prefHeight="39.0" prefWidth="74.0" text="Inserir" />
       <Button fx:id="buttonAlterar" layoutX="210.0" layoutY="409.0" mnemonicParsing="false" onAction="#clicarButtonAlterar" prefHeight="39.0" prefWidth="74.0" text="Alterar" />
-      <Button fx:id="buttonInserir1" layoutX="336.0" layoutY="409.0" mnemonicParsing="false" onAction="#clicarButtonInserir" prefHeight="39.0" prefWidth="74.0" text="deletar" />
-      <Button fx:id="buttonAlterar1" layoutX="456.0" layoutY="409.0" mnemonicParsing="false" onAction="#clicarButtonAlterar" prefHeight="39.0" prefWidth="74.0" text="Visualizar" />
+      <Button fx:id="buttonInserir1" layoutX="336.0" layoutY="409.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="74.0" text="deletar" />
+      <Button fx:id="buttonAlterar1" layoutX="456.0" layoutY="409.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="74.0" text="Visualizar" />
    </children>
 </AnchorPane>

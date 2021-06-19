@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+
 /**
  *
  * @author fabio
@@ -19,6 +20,9 @@ public class Main extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
+        
+        
+        
         Parent root = FXMLLoader.load(getClass().getResource("/trabalhojava/view/MenuLogin.fxml"));
         
         Scene scene = new Scene(root);

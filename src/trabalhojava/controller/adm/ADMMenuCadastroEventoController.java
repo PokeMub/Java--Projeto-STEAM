@@ -15,6 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+  
 
 /**
  * FXML Controller class
@@ -27,10 +28,13 @@ public class ADMMenuCadastroEventoController implements Initializable {
     private Button buttonInserir;
     @FXML
     private Button buttonAlterar;
-    
+    /*
+    @FXML
+    private Button 
+    */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
     }    
     
     public void clicarButtonInserir() throws IOException {

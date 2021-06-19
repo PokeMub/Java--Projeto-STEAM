@@ -37,6 +37,8 @@ public class ADMMenuController implements Initializable {
     @FXML
     private AnchorPane anchorPaneMenu;
 
+    @FXML
+    private AnchorPane anchorPane;
     
     private Usuario usuario;
     /*
@@ -80,6 +82,7 @@ public class ADMMenuController implements Initializable {
 
     @FXML
     public void clicarbuttonGraficos() throws IOException {
+        
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/trabalhojava/view/adm/ADMMenuGraficosTodosJogos.fxml"));
 
@@ -95,6 +98,9 @@ public class ADMMenuController implements Initializable {
         } catch (IOException e) {
             System.out.println("ERRO RegistroController: " + e);
         }
+        
+       // AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/trabalhojava/view/adm/ADMMenuGraficosTodosJogos.fxml"));
+       // anchorPane.getChildren().setAll(a);
     }
 
     @FXML

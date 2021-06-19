@@ -87,8 +87,8 @@ public class MenuUsuarioController implements Initializable {
             dialogStage.setScene(scene);
 
             controller.setUsuario(usuario);
-
-            dialogStage.showAndWait();
+            anchorPaneMenu.getChildren().setAll(page);
+            //dialogStage.showAndWait(); apaga tudo q tive aver com essa linha
             
             
             
@@ -103,9 +103,21 @@ public class MenuUsuarioController implements Initializable {
     @FXML
     public void clicarButtonJogos() throws IOException {
         try {
-            //Trocar o 'InformacoesUsuario.fxml' pelo endereço correto <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-            AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/trabalhojava/view/MenuUsuarioBibliotecaJogos.fxml"));
-            anchorPaneMenu.getChildren().setAll(a);
+            System.out.println("usuario: "+ usuario.getEmail());
+            System.out.println("usuarioId: "+ usuario.getIdUsuario());
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MenuUsuarioBibliotecaJogosController.class.getResource("/trabalhojava/view/MenuUsuarioBibliotecaJogos.fxml"));
+            //root = FXMLLoader.load(getClass().getResource("/trabalhojava/view/MenuUsuario.fxml"));
+            AnchorPane page = (AnchorPane) loader.load();
+            MenuUsuarioBibliotecaJogosController controller = loader.getController();
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Relatorio");
+            Scene scene = new Scene(page);
+            dialogStage.setScene(scene);
+
+            controller.setUsuario(usuario);
+            anchorPaneMenu.getChildren().setAll(page);
+            //dialogStage.showAndWait();
         } catch (IOException e) {
             System.out.println("Erro no FXMLVBoxMainController " + e);
         }
@@ -114,9 +126,21 @@ public class MenuUsuarioController implements Initializable {
     @FXML
     public void clicarButtonRelatorio() throws IOException {
         try {
-            //Trocar o 'InformacoesUsuario.fxml' pelo endereço correto <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-            AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/trabalhojava/view/MenuUsuarioRelatorio.fxml"));
-            anchorPaneMenu.getChildren().setAll(a);
+            System.out.println("usuario: "+ usuario.getEmail());
+            System.out.println("usuarioId: "+ usuario.getIdUsuario());
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MenuUsuarioRelatorioController.class.getResource("/trabalhojava/view/MenuUsuarioRelatorio.fxml"));
+            //root = FXMLLoader.load(getClass().getResource("/trabalhojava/view/MenuUsuario.fxml"));
+            AnchorPane page = (AnchorPane) loader.load();
+            MenuUsuarioRelatorioController controller = loader.getController();
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Relatorio");
+            Scene scene = new Scene(page);
+            dialogStage.setScene(scene);
+
+            controller.setUsuario(usuario);
+            anchorPaneMenu.getChildren().setAll(page);
+            //dialogStage.showAndWait();
         } catch (IOException e) {
             System.out.println("Erro no FXMLVBoxMainController " + e);
         }
@@ -125,9 +149,19 @@ public class MenuUsuarioController implements Initializable {
     @FXML
     public void clicaButtonLoja() throws IOException {
         try {
-            //Trocar o 'InformacoesUsuario.fxml' pelo endereço correto <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-            AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/trabalhojava/view/MenuUsuarioLojaOnline.fxml"));
-            anchorPaneMenu.getChildren().setAll(a);
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MenuUsuarioLojaOnlineController.class.getResource("/trabalhojava/view/MenuUsuarioLojaOnline.fxml"));
+            //root = FXMLLoader.load(getClass().getResource("/trabalhojava/view/MenuUsuario.fxml"));
+            AnchorPane page = (AnchorPane) loader.load();
+            MenuUsuarioLojaOnlineController controller = loader.getController();
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Loja");
+            Scene scene = new Scene(page);
+            dialogStage.setScene(scene);
+
+            controller.setUsuario(usuario);
+            anchorPaneMenu.getChildren().setAll(page);
+            //dialogStage.showAndWait();
         } catch (IOException e) {
             System.out.println("Erro no FXMLVBoxMainController " + e);
         }

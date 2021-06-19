@@ -78,7 +78,20 @@ public class UsuarioDao {
         return retorno;
     }
     
-     
-    
+    public void alterarCateira(int id, double valor) {
+        String sql = "UPDATE usuario SET valor_carteira=? WHERE id_usuario=?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setDouble(1, valor);
+            stmt.setInt(2, id);
+            
+            stmt.execute();
+            System.out.println("Alterado");
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(UsuarioDao.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }
+    }
     
 }

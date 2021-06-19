@@ -12,9 +12,9 @@ import javafx.fxml.Initializable;
 /**
  * FXML Controller class
  *
- * @author fabio
+ * @author PokeMub
  */
-public class ADMMenuGraficosGeneroJogosController implements Initializable {
+public class ADMMenuCadastroProdutoVisualizarController implements Initializable {
 
     /**
      * Initializes the controller class.

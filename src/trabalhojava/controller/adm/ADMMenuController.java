@@ -81,22 +81,38 @@ public class ADMMenuController implements Initializable {
     @FXML
     public void clicarbuttonGraficos() throws IOException {
         try {
-            //Trocar o 'InformacoesUsuario.fxml' pelo endereço correto <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-            AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/trabalhojava/view/adm/ADMMenuGraficos.fxml"));
-            anchorPaneMenu.getChildren().setAll(a);
+            Parent root = FXMLLoader.load(getClass().getResource("/trabalhojava/view/adm/ADMMenuGraficosTodosJogos.fxml"));
+
+            Stage stage = new Stage();
+
+            Scene scene = new Scene(root);
+
+            stage.setScene(scene);
+            stage.show();
+
+       
+
         } catch (IOException e) {
-            System.out.println("Erro no FXMLVBoxMainController " + e);
+            System.out.println("ERRO RegistroController: " + e);
         }
     }
 
     @FXML
     public void clicarbuttonRelatorio() throws IOException {
         try {
-            //Trocar o 'InformacoesUsuario.fxml' pelo endereço correto <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-            AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/trabalhojava/view/adm/ADMMenuRelatorio.fxml"));
-            anchorPaneMenu.getChildren().setAll(a);
+            Parent root = FXMLLoader.load(getClass().getResource("/trabalhojava/view/adm/ADMMenuRelatorioTodosJogos.fxml"));
+
+            Stage stage = new Stage();
+
+            Scene scene = new Scene(root);
+
+            stage.setScene(scene);
+            stage.show();
+
+       
+
         } catch (IOException e) {
-            System.out.println("Erro no FXMLVBoxMainController " + e);
+            System.out.println("ERRO RegistroController: " + e);
         }
     }
     

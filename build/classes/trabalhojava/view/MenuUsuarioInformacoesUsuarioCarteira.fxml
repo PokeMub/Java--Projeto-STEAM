@@ -65,17 +65,17 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <TextField layoutX="204.0" layoutY="171.0" prefHeight="25.0" prefWidth="224.0" />
-      <TextField layoutX="204.0" layoutY="120.0" prefHeight="25.0" prefWidth="224.0" />
-      <TextField layoutX="193.0" layoutY="73.0" prefHeight="25.0" prefWidth="235.0" />
-      <TextField layoutX="259.0" layoutY="22.0" prefHeight="25.0" prefWidth="168.0" />
+      <TextField fx:id="labelVenCar" layoutX="204.0" layoutY="171.0" prefHeight="25.0" prefWidth="224.0" />
+      <TextField fx:id="labelCodSeg" layoutX="204.0" layoutY="120.0" prefHeight="25.0" prefWidth="224.0" />
+      <TextField fx:id="labelNumCart" layoutX="193.0" layoutY="73.0" prefHeight="25.0" prefWidth="235.0" />
+      <TextField fx:id="labelNomPortCart" layoutX="259.0" layoutY="22.0" prefHeight="25.0" prefWidth="168.0" />
       <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="407.0" layoutY="266.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../build/classes/trabalho/Imagens/16302.png" />
          </image>
       </ImageView>
-      <TextField layoutX="173.0" layoutY="274.0" prefHeight="31.0" prefWidth="235.0" />
-      <Button layoutX="235.0" layoutY="320.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="126.0" text="Adicionar">
+      <TextField fx:id="labelValPor" layoutX="173.0" layoutY="274.0" prefHeight="31.0" prefWidth="235.0" />
+      <Button fx:id="buttonAdd" layoutX="235.0" layoutY="320.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="126.0" text="Adicionar">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>

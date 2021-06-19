@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="470.0" prefWidth="595.0" style="-fx-background-color: #EBEBEA;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trabalhojava.controller.adm.ADMMenuCadastroEventoController">
+<AnchorPane id="AnchorPane" prefHeight="470.0" prefWidth="595.0" style="-fx-background-color: #EBEBEA;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trabalhojava.controller.adm.ADMMenuCadastroEventoController">
    <children>
       <TableView layoutX="-2.0" prefHeight="389.0" prefWidth="601.0">
         <columns>
@@ -14,7 +17,9 @@
             <TableColumn prefWidth="95.0" text="ID" />
         </columns>
       </TableView>
-      <Button fx:id="buttonInserir" layoutX="200.0" layoutY="409.0" mnemonicParsing="false" onAction="#clicarButtonInserir" prefHeight="39.0" prefWidth="74.0" text="Inserir" />
-      <Button fx:id="buttonAlterar" layoutX="347.0" layoutY="409.0" mnemonicParsing="false" onAction="#clicarButtonAlterar" prefHeight="39.0" prefWidth="74.0" text="Alterar" />
+      <Button fx:id="buttonInserir" layoutX="87.0" layoutY="409.0" mnemonicParsing="false" onAction="#clicarButtonInserir" prefHeight="39.0" prefWidth="74.0" text="Inserir" />
+      <Button fx:id="buttonAlterar" layoutX="210.0" layoutY="409.0" mnemonicParsing="false" onAction="#clicarButtonAlterar" prefHeight="39.0" prefWidth="74.0" text="Alterar" />
+      <Button fx:id="buttonInserir1" layoutX="336.0" layoutY="409.0" mnemonicParsing="false" onAction="#clicarButtonInserir" prefHeight="39.0" prefWidth="74.0" text="deletar" />
+      <Button fx:id="buttonAlterar1" layoutX="456.0" layoutY="409.0" mnemonicParsing="false" onAction="#clicarButtonAlterar" prefHeight="39.0" prefWidth="74.0" text="Visualizar" />
    </children>
 </AnchorPane>

@@ -116,11 +116,12 @@ public class MenuLoginController implements Initializable {
                         Stage dialogStage = new Stage();
                         dialogStage.setTitle("Compra Jogo");
                         Scene scene = new Scene(page);
-                        
+                        dialogStage.setScene(scene);
                         controller.setUsuario(usuario);
 
+                        clicaButtonSair();
                         dialogStage.showAndWait();
-                    dialogStage.showAndWait();
+                    
 
                     } else {
                         loader.setLocation(MenuUsuarioController.class.getResource("/trabalhojava/view/MenuUsuario.fxml"));
@@ -133,7 +134,7 @@ public class MenuLoginController implements Initializable {
                         dialogStage.setScene(scene);
                          
                         controller.setUsuario(usuario);
-
+                        clicaButtonSair();
                         dialogStage.showAndWait();
 
                     }

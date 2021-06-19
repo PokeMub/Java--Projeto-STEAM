@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trabalhojava.controller.adm.ADMMenuCadastroProdutoVisualizarController">
+   <children>
+      <Label layoutX="14.0" layoutY="23.0" text="Nome" />
+      <Label layoutX="14.0" layoutY="43.0" text="Valor Desconto" />
+      <Label layoutX="14.0" layoutY="130.0" text="Data Inicio" />
+      <Label layoutX="14.0" layoutY="65.0" text="Forma Desconto" />
+      <Label layoutX="14.0" layoutY="95.0" text="Status Evento" />
+      <Label layoutX="14.0" layoutY="161.0" text="Data Terrmino" />
+      <Button layoutX="510.0" layoutY="361.0" mnemonicParsing="false" text="voltar" />
+   </children>
+</AnchorPane>

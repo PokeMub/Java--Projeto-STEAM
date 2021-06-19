@@ -1,4 +1,3 @@
-
 package trabalhojava.controller;
 
 import java.io.IOException;
@@ -19,93 +18,83 @@ import javafxtrabalhopoo.model.database.Database;
 import javafxtrabalhopoo.model.database.DatabaseFactory;
 import javafxtrabalhopoo.model.domain.Usuario;
 
-
 public class MenuUsuarioInformacoesUsuarioController implements Initializable {
 
     @FXML
     private Label labelEmail;
-    
+
     @FXML
     private Label labelSenha;
-    
+
     @FXML
     private Label labelNome;
-    
+
     @FXML
     private Label labelCpf;
-    
+
     @FXML
     private Label labelData_de_nascimento;
-    
+
     @FXML
     private Label labelTelefone;
-    
+
     @FXML
     private Label labelStjo_points;
-    
+
     @FXML
     private Button buttonAdicionar_points;
-    
+
     private Usuario usuario;
-    
+
     @FXML
     private AnchorPane anchorPaneInformacaoUsuario;
-    
+
     private final Database database = DatabaseFactory.getDatabase("postgresql");
     private final Connection connection = database.conectar();
     private final UsuarioDao usuarioDao = new UsuarioDao();
-   
-    
-    
-    
-    
-    
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-   
+
     }
-    
-    public void buttonInserirCarteira() throws IOException{
+
+    public void buttonInserirCarteira() throws IOException {
         System.out.println("lucas");
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(MenuUsuarioInformacoesUsuarioControllerCarteira.class.getResource("/trabalhojava/view/MenuUsuarioInformacoesUsuarioCarteira.fxml"));
         AnchorPane page = (AnchorPane) loader.load();
         MenuUsuarioInformacoesUsuarioControllerCarteira controller = loader.getController();
-       
-    
+
         Stage dialogStage = new Stage();
-      
+
         dialogStage.setTitle("Colocar Dinheiro");
-       
+
         Scene scene = new Scene(page);
-       
+
         dialogStage.setScene(scene);
-        
+
         controller.setUsuario(usuario);
+        System.out.println("usuario: " + usuario.getEmail());
+        System.out.println("usuarioId: " + usuario.getIdUsuario());
         //controller.setString("joao");
-       
+
         dialogStage.showAndWait();
-        
 
     }
-    
-    
-    public void setUsuario(Usuario usuario){
+
+    public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
-        
+
         labelEmail.setText(usuario.getEmail());
         labelNome.setText(usuario.getNomeUsuario());
         labelSenha.setText(usuario.getSenha());
         labelCpf.setText(usuario.getCpf());
-            
+
         labelData_de_nascimento.setText(String.valueOf(usuario.getDataNascimento()));
-        
+
         labelTelefone.setText((usuario.getTelefone()));
         labelStjo_points.setText(String.valueOf(usuario.getValorCarteira()));
-        
-        
-        
+
         /*
         usuarioDao.setConnection (connection);
         
@@ -116,10 +105,7 @@ public class MenuUsuarioInformacoesUsuarioController implements Initializable {
  
         pessoa = usuarioDao.buscarEmail(pessoa);
         
-        */
-        
+         */
     }
-    
-   
- 
+
 }

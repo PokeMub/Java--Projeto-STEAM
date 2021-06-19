@@ -18,7 +18,7 @@ public class DatabasePostgreSQL implements Database {
             // acredito q o erro e uma dessa duas linha a de cima e a de baixo \/   /\
             
             this.connection = DriverManager.getConnection("jdbc:postgresql://209.209.40.83:34449/nome", "admin","12345678");
-            //this.connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1/DataBase_STJO", "lucas","123");
+            //this.connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1/DataBase_STJO", "postgres","123");
             // conectar no banco local
             
             return this.connection; //não ta retonado 

@@ -37,32 +37,32 @@
             <Font name="System Bold" size="19.0" />
          </font>
       </Label>
-      <Label layoutX="166.0" layoutY="20.0" prefHeight="21.0" prefWidth="414.0" text="Label">
+      <Label fx:id="labelNome" layoutX="166.0" layoutY="20.0" prefHeight="21.0" prefWidth="414.0" text="Label">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="197.0" layoutY="52.0" prefHeight="21.0" prefWidth="392.0" text="Label">
+      <Label fx:id="labelIdade" layoutX="197.0" layoutY="52.0" prefHeight="21.0" prefWidth="392.0" text="Label">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="78.0" layoutY="87.0" prefHeight="21.0" prefWidth="512.0" text="Label">
+      <Label fx:id="labelValor" layoutX="78.0" layoutY="87.0" prefHeight="21.0" prefWidth="512.0" text="Label">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="251.0" layoutY="121.0" prefHeight="21.0" prefWidth="338.0" text="Label">
+      <Label fx:id="labelTempo" layoutX="251.0" layoutY="121.0" prefHeight="21.0" prefWidth="338.0" text="Label">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="243.0" layoutY="157.0" prefHeight="21.0" prefWidth="348.0" text="Label">
+      <Label fx:id="labelData" layoutX="243.0" layoutY="157.0" prefHeight="21.0" prefWidth="348.0" text="Label">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="172.0" layoutY="193.0" prefHeight="21.0" prefWidth="414.0" text="Label">
+      <Label fx:id="labelGenero" layoutX="172.0" layoutY="193.0" prefHeight="21.0" prefWidth="414.0" text="Label">
          <font>
             <Font size="15.0" />
          </font>
@@ -72,7 +72,7 @@
             <Font name="System Bold Italic" size="22.0" />
          </font>
       </Label>
-      <Button layoutX="244.0" layoutY="287.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="108.0" text="Confirmar" />
+      <Button fx:id="buttonConfimar" layoutX="244.0" layoutY="287.0" mnemonicParsing="false" onAction="#clicaConfiamr" prefHeight="48.0" prefWidth="108.0" text="Confirmar" />
       <Label layoutX="22.0" layoutY="354.0" text="Valor da Carteira Antes da Compra :">
          <font>
             <Font name="System Bold" size="16.0" />
@@ -83,17 +83,17 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="298.0" layoutY="356.0" prefHeight="21.0" prefWidth="152.0" text="Label">
+      <Label fx:id="labelValorAntes" layoutX="298.0" layoutY="356.0" prefHeight="21.0" prefWidth="152.0" text="Label">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="307.0" layoutY="419.0" prefHeight="21.0" prefWidth="152.0" text="Label">
+      <Label fx:id="labelValorDepois" layoutX="307.0" layoutY="419.0" prefHeight="21.0" prefWidth="152.0" text="Label">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Button layoutX="510.0" layoutY="417.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="69.0" text="Voltar">
+      <Button fx:id="buttonSair" layoutX="510.0" layoutY="417.0" mnemonicParsing="false" onAction="#clicaButtonSair" prefHeight="32.0" prefWidth="69.0" text="Voltar">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font>

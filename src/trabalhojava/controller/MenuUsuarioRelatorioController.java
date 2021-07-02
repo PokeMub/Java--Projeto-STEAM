@@ -85,17 +85,8 @@ public class MenuUsuarioRelatorioController implements Initializable {
     }
 
     public void carregarTableViewJogosComprados(int id) {
-        System.out.println("Id : " + id);
+
         listJogosComprados = jogoCompradoDao.listar(id);
-
-        System.out.println(listJogosComprados);
-
-        for (JogoComprado jogo : listJogosComprados) {
-            System.out.println(jogo.getJogo().getNome());
-            System.out.println(jogo.getValorProduto());
-            System.out.println(jogo.getStatusReembolso());
-            System.out.println(jogo.getDataCompra());
-        }
 
         tableColoumnNome.setCellValueFactory(new PropertyValueFactory<>("jogoNome"));
         tableColoumnGeneroJogo.setCellValueFactory(new PropertyValueFactory<>("jogoGenero"));

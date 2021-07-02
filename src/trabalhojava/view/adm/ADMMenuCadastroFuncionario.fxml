@@ -8,10 +8,10 @@
 
 <AnchorPane id="AnchorPane" prefHeight="470.0" prefWidth="595.0" style="-fx-background-color: #EBEBEA;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trabalhojava.controller.adm.ADMMenuCadastroFuncionarioController">
    <children>
-      <TableView prefHeight="413.0" prefWidth="595.0">
+      <TableView fx:id="tableViewFuncionario" prefHeight="413.0" prefWidth="595.0">
         <columns>
-          <TableColumn prefWidth="400.0" text="Nome" />
-            <TableColumn prefWidth="194.0" text="CPF" />
+          <TableColumn fx:id="tableColumnNome" prefWidth="400.0" text="Nome" />
+            <TableColumn fx:id="tableColumnCPF" prefWidth="194.0" text="CPF" />
         </columns>
       </TableView>
       <Button fx:id="buttonInserir" layoutX="34.0" layoutY="423.0" mnemonicParsing="false" onAction="#clicarButtonInserir" prefHeight="33.0" prefWidth="105.0" text="Inserir">
@@ -24,7 +24,7 @@
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="459.0" layoutY="423.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="105.0" text="Apagar">
+      <Button fx:id="buttonRemover" layoutX="459.0" layoutY="423.0" mnemonicParsing="false" onAction="#clicarButtonApagar" prefHeight="33.0" prefWidth="105.0" text="Apagar">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font>

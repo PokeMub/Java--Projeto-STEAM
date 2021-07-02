@@ -66,20 +66,14 @@ public class MenuUsuarioLojaOnlineController implements Initializable {
     private final Connection connection = database.conectar();
     private final JogoDao jogoDao = new JogoDao();
     private final JogoCompradoDao jogoCompradoDao = new JogoCompradoDao();
-    
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        System.out.println("Teste no MenuUsuarioLojaOnlineController.java");
         jogoCompradoDao.setConnection(connection);
         jogoDao.setConnection(connection);
 
-        
-
         carregarTableViewJogo();
 
-        tableViewJogo.getSelectionModel().selectedItemProperty().addListener(
-                (observable, oldValue, newValue) -> selecionarItemTableViewJogo(newValue));
     }
 
     public Usuario getUsuario() {
@@ -93,10 +87,11 @@ public class MenuUsuarioLojaOnlineController implements Initializable {
 
     public void carregarTableViewJogo() {
         listJogo = jogoDao.listar();
+        listJogo.removeIf(jg -> jg.getStatu() == 'N');
 
         tableColummJogoNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
         tableColummJogoGenero.setCellValueFactory(new PropertyValueFactory<>("GeneroNome"));
-        tableColummJogoValor.setCellValueFactory(new PropertyValueFactory<>("valor"));
+        tableColummJogoValor.setCellValueFactory(new PropertyValueFactory<>("valorDesconto"));
         tableColummJogoTempo.setCellValueFactory(new PropertyValueFactory<>("tempoEstimado"));
 
         observableListJogo = FXCollections.observableArrayList(listJogo);
@@ -104,27 +99,17 @@ public class MenuUsuarioLojaOnlineController implements Initializable {
 
     }
 
-    public void selecionarItemTableViewJogo(Jogo jogo) {
-        System.out.println("Nome: " + jogo.getNome());
-        System.out.println("Status: " + jogo.getStatu());
-        System.out.println("Valor: " + jogo.getValor());
-        System.out.println("Quantidade de copias: " + jogo.getQtdVendida());
-        System.out.println("Genero: " + jogo.getGeneroNome());
-    }
-
     @FXML
     public void clicarButtonComprar() throws IOException {
         listJogosComprados = jogoCompradoDao.listar(getUsuario().getIdUsuario());
-        System.out.println("MenuUsuarioLojaOnlineController clicarButtonComprar");
         Jogo jogo = tableViewJogo.getSelectionModel().getSelectedItem();
+        System.out.println("Desconto: " + jogo.getValorDesconto());
 
         ArrayList<Integer> ids = new ArrayList<>();
 
         for (JogoComprado jogoc : listJogosComprados) {
             ids.add(jogoc.getIdJogo());
         }
-
-        System.out.println("IDS: " + ids);
 
         if (jogo != null) {
             if (!ids.contains(jogo.getIdJogo())) {

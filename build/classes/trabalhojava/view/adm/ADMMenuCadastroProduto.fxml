@@ -1,24 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="470.0" prefWidth="595.0" style="-fx-background-color: #EBEBEA;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trabalhojava.controller.adm.ADMMenuCadastroProdutoController">
+<AnchorPane id="AnchorPane" prefHeight="470.0" prefWidth="595.0" style="-fx-background-color: #EBEBEA;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trabalhojava.controller.adm.ADMMenuCadastroProdutoController">
    <children>
-      <TableView prefHeight="413.0" prefWidth="595.0">
+      <TableView fx:id="tableViewProduto" prefHeight="413.0" prefWidth="595.0">
         <columns>
-          <TableColumn prefWidth="195.0" text="Nome" />
-          <TableColumn prefWidth="75.0" text="ID" />
-            <TableColumn prefWidth="117.0" text="Valor" />
-            <TableColumn prefWidth="104.0" text="Genero" />
-            <TableColumn prefWidth="103.0" text="QTD Vendidos" />
+          <TableColumn fx:id="tableColumnProdutoNome" prefWidth="195.0" text="Nome" />
+          <TableColumn fx:id="tableColumnProdutoId" prefWidth="75.0" text="ID" />
+            <TableColumn fx:id="tableColumnProdutoValor" prefWidth="117.0" text="Valor" />
+            <TableColumn fx:id="tableColumnProdutoGenero" prefWidth="104.0" text="Genero" />
+            <TableColumn fx:id="tableColumnProdutoQtd" prefWidth="103.0" text="QTD Vendidos" />
         </columns>
       </TableView>
       <Button fx:id="buttonInserir" layoutX="34.0" layoutY="423.0" mnemonicParsing="false" onAction="#clicarButtonInserir" prefHeight="33.0" prefWidth="105.0" text="Inserir">
@@ -31,7 +27,7 @@
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="459.0" layoutY="423.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="105.0" text="Apagar">
+      <Button fx:id="buttonApagar" layoutX="459.0" layoutY="423.0" mnemonicParsing="false" onAction="#clicarButtonApagar" prefHeight="33.0" prefWidth="105.0" text="Apagar">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font>

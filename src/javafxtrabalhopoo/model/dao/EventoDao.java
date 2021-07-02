@@ -1,5 +1,5 @@
-
 package javafxtrabalhopoo.model.dao;
+
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 import javafxtrabalhopoo.model.domain.Jogo;
 
 public class EventoDao {
+
     private Connection connection;
 
     public Connection getConnection() {
@@ -22,15 +23,15 @@ public class EventoDao {
     public void setConnection(Connection connection) {
         this.connection = connection;
     }
-    
-    public Evento buscarId(Evento evento){
+
+    public Evento buscarId(Evento evento) {
         String sql = "SELECT * FROM evento WHERE id_evento=?";
         //String sql = "SELECT COUNT(*) FROM evento WHERE id_evento=?";
         Evento retorno = new Evento();
-        
-        try{
+
+        try {
             PreparedStatement stmt = connection.prepareStatement(sql);
-            stmt.setInt(1,evento.getIdEvento());
+            stmt.setInt(1, evento.getIdEvento());
             ResultSet resultado = stmt.executeQuery();
             if (resultado.next()) {
                 evento.setIdEvento(resultado.getInt("id_evento"));
@@ -41,13 +42,13 @@ public class EventoDao {
                 evento.setDataInicio(resultado.getDate("data_inicio"));
                 evento.setDataTermino(resultado.getDate("data_termino"));
                 retorno = evento;
-            }  
-        }catch (SQLException ex) {
+            }
+        } catch (SQLException ex) {
             Logger.getLogger(UsuarioDao.class.getName()).log(Level.SEVERE, null, ex);
         }
         return retorno;
     }
-    
+
     public List<Evento> listar() {
         String sql = "SELECT * FROM evento";
         List<Evento> retorno = new ArrayList<>();
@@ -56,10 +57,17 @@ public class EventoDao {
             ResultSet resultado = stmt.executeQuery();
             while (resultado.next()) {
                 Evento evento = new Evento();
-                
+
                 evento.setNomeEvento(resultado.getString("nome_evento"));
                 evento.setValorDesconto(resultado.getFloat("valor_desconto"));
                 evento.setIdEvento(resultado.getInt("id_evento"));
+                //
+                evento.setFormaDesconto(resultado.getString("forma_desconto"));
+                evento.setStatu_evento(resultado.getString("statu_evento").charAt(0));
+                evento.setDataInicio(resultado.getDate("data_inicio"));
+                evento.setDataTermino(resultado.getDate("data_termino"));
+
+                //
                 retorno.add(evento);
             }
         } catch (SQLException ex) {
@@ -67,36 +75,36 @@ public class EventoDao {
         }
         return retorno;
     }
-    
-    public boolean remover(Evento evento){
+
+    public boolean remover(Evento evento) {
         String sql = "DELETE FROM evento WHERE id_evento=?";
-        try{
+        try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setInt(1, evento.getIdEvento());
             stmt.execute();
             return true;
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(EventoDao.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
-    
-    
+
     }
-    
-    public boolean alterarIdEventoJogo (Jogo jogo, int id_evento){
+
+    public boolean alterarIdEventoJogo(Jogo jogo, int id_evento) {
         String sql = "UPDATE jogo SET id_evento=? WHERE id_evento=?";
-        try{
+        try {
             PreparedStatement stmt = connection.prepareStatement(sql);
-            stmt.setInt(1,3);
-            stmt.setInt(2,id_evento);
+            stmt.setInt(1, 3);
+            stmt.setInt(2, id_evento);
             stmt.execute();
             return true;
-        }catch(SQLException ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(JogoDao.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
     }
+
     // int sendo char tlavez bugue
     public boolean alterar(Evento evento) {
         String sql = "UPDATE evento SET nome_evento=?, valor_desconto=?, forma_desconto=?, statu_evento=? WHERE id_evento=?";
@@ -105,7 +113,7 @@ public class EventoDao {
             stmt.setString(1, evento.getNomeEvento());
             stmt.setDouble(2, evento.getValorDesconto());
             stmt.setString(3, evento.getFormaDesconto());
-            stmt.setInt(4, evento.getStatu_evento());
+            stmt.setString(4, String.valueOf(evento.getStatu_evento()));
             stmt.setInt(5, evento.getIdEvento());
             stmt.execute();
             return true;
@@ -114,26 +122,33 @@ public class EventoDao {
             return false;
         }
     }
-     // int sendo char tlavez bugue
-    public boolean inserir(Evento evento){
+    // int sendo char tlavez bugue
+
+    public boolean inserir(Evento evento) {
         String sql = "INSERT INTO evento(nome_evento, valor_desconto, forma_desconto, statu_evento, data_inicio, data_termino) VALUES(?,?,?,?,?,?)";
         try {
+
             PreparedStatement stmt = connection.prepareStatement(sql);
+
             stmt.setString(1, evento.getNomeEvento());
+
             stmt.setDouble(2, evento.getValorDesconto());
+
             stmt.setString(3, evento.getFormaDesconto());
-            stmt.setInt(4, evento.getStatu_evento());
-            stmt.setDate(3, (Date) evento.getDataInicio());
-            stmt.setDate(4, (Date) evento.getDataTermino());
+
+            stmt.setString(4, "A");
+
+            stmt.setDate(5, (Date) evento.getDataInicio());
+
+            stmt.setDate(6, (Date) evento.getDataTermino());
+
             stmt.execute();
             return true;
         } catch (SQLException ex) {
             Logger.getLogger(EventoDao.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
-    
-    
+
     }
-    
-    
+
 }

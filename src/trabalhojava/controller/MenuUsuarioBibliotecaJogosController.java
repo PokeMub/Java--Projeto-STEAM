@@ -75,10 +75,8 @@ public class MenuUsuarioBibliotecaJogosController implements Initializable {
     }
 
     public void carregarTableViewJogosComprados(int id) {
-        System.out.println("Id : " + id);
-        listJogosComprados = jogoCompradoDao.listar(id);
 
-        System.out.println(listJogosComprados);
+        listJogosComprados = jogoCompradoDao.listar(id);
 
         tableColumnBibliotecaNome.setCellValueFactory(new PropertyValueFactory<>("jogoNome"));
         tableColumnBibliotecaGenero.setCellValueFactory(new PropertyValueFactory<>("jogoGenero"));

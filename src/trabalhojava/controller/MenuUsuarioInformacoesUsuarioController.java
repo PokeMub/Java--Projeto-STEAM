@@ -55,11 +55,11 @@ public class MenuUsuarioInformacoesUsuarioController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        usuarioDao.setConnection(connection);
     }
 
     public void buttonInserirCarteira() throws IOException {
-        System.out.println("lucas");
+        
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(MenuUsuarioInformacoesUsuarioControllerCarteira.class.getResource("/trabalhojava/view/MenuUsuarioInformacoesUsuarioCarteira.fxml"));
         AnchorPane page = (AnchorPane) loader.load();
@@ -74,16 +74,15 @@ public class MenuUsuarioInformacoesUsuarioController implements Initializable {
         dialogStage.setScene(scene);
 
         controller.setUsuario(usuario);
-        System.out.println("usuario: " + usuario.getEmail());
-        System.out.println("usuarioId: " + usuario.getIdUsuario());
-        //controller.setString("joao");
 
         dialogStage.showAndWait();
-
+        
+        setUsuario(usuario);
     }
+    
 
     public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+        this.usuario = usuarioDao.buscarId(usuario);
 
         labelEmail.setText(usuario.getEmail());
         labelNome.setText(usuario.getNomeUsuario());
@@ -95,17 +94,6 @@ public class MenuUsuarioInformacoesUsuarioController implements Initializable {
         labelTelefone.setText((usuario.getTelefone()));
         labelStjo_points.setText(String.valueOf(usuario.getValorCarteira()));
 
-        /*
-        usuarioDao.setConnection (connection);
-        
-       
-        Usuario pessoa = new Usuario();
-  
-        pessoa.setEmail(usuario.getEmail());
- 
-        pessoa = usuarioDao.buscarEmail(pessoa);
-        
-         */
     }
 
 }

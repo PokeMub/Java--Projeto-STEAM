@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelatorioADM" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="dcfe7c66-aa6c-4bc7-a949-6505c448dcc4">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PhostGreeCertinhoTrabPOO2"/>
+	<queryString language="SQL">
+		<![CDATA[WITH
+    listar_relatorio AS (
+        SELECT DISTINCT
+            j.id_jogo, 
+            j.nome, 
+            gen.nome_genero, 
+            j.qtd_vend_jogo, 
+            j.valor
+        FROM jogo AS j 
+            INNER JOIN genero AS gen 
+                ON (j.id_genero = gen.id_genero)
+        ORDER BY j.id_jogo
+    ),     listar_soma AS (
+        SELECT DISTINCT
+            j.id_jogo,
+            COALESCE(SUM(jc.qtd_hora_jogada), 0) AS total
+        FROM jogo AS j
+            INNER JOIN jogo_comprado AS jc 
+                ON (j.id_jogo = jc.id_jogo)
+        GROUP BY j.id_jogo
+        ORDER BY j.id_jogo
+    )
+SELECT DISTINCT
+        lr.id_jogo,
+        lr.nome, 
+        lr.nome_genero,
+        ls.total,
+        lr.qtd_vend_jogo,
+        lr.valor
+FROM listar_relatorio AS lr, listar_soma AS ls
+WHERE lr.id_jogo = ls.id_jogo
+ORDER BY lr.id_jogo;]]>
+	</queryString>
+	<field name="nome" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="jogo"/>
+	</field>
+	<field name="nome_genero" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nome_genero"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="genero"/>
+	</field>
+	<field name="total" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="total"/>
+	</field>
+	<field name="qtd_vend_jogo" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="qtd_vend_jogo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="jogo"/>
+	</field>
+	<field name="valor" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="valor"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="jogo"/>
+	</field>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="aa6d116f-c553-4dac-aec6-8d8af5451280"/>
+				<staticText>
+					<reportElement x="20" y="20" width="545" height="43" forecolor="#FFFFFF" uuid="f38d2aec-4e7d-4fdb-b1e7-13639a25abc4"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Relatório ADM]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="06987256-c783-40a5-a4f7-6edd18e700d5"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="6558c8c5-b98c-405f-bd3c-833af9d5490f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4df548ce-2e92-40e0-8757-f75219ddc01a"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jogos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="111" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="e4f2e597-029b-46b7-a43a-dcd21bea675e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bb1eda8d-b116-424d-b23d-86da9ec36dd9"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Genêro]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="222" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="0daf6b80-47c1-4a70-a779-67dd2bb20371">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1dc56f52-687d-40b0-837d-99f727a58c84"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total de Horas Jogadas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="333" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="f7ccf261-203e-49ea-9340-7f6e0af4a084">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="21843a59-9bb5-4229-b0dd-343002387633"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[QTD Vendida]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="444" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="203968a3-b592-42b3-be75-1c580f198bc0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bb6a7183-fc2d-4bbe-82dc-f283b42651ab"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valor]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="4140a2fd-cbd0-4107-bbca-aaa468bc1279"/>
+			</line>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="0" y="0" width="111" height="20" uuid="77110a06-bae0-4cdd-9d7f-5cfe14e7908b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4df548ce-2e92-40e0-8757-f75219ddc01a"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="111" y="0" width="111" height="20" uuid="e8a3976c-9208-407f-8422-1a7fddee14d0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bb1eda8d-b116-424d-b23d-86da9ec36dd9"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nome_genero}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="222" y="0" width="111" height="20" uuid="2264d2a6-22e4-43c6-9508-21879597e8ee">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1dc56f52-687d-40b0-837d-99f727a58c84"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="333" y="0" width="111" height="20" uuid="9ae84163-5327-4c6c-8803-816fbd1e80d2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="21843a59-9bb5-4229-b0dd-343002387633"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{qtd_vend_jogo}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="444" y="0" width="111" height="20" uuid="a55ef0bb-d139-4ea6-a24e-7f879ff1cc58">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bb6a7183-fc2d-4bbe-82dc-f283b42651ab"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{valor}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="deb7b433-be52-4bc6-8c2a-402bae7f76b2"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="58f74b44-2244-4d5f-b3a1-63cc2d4e3e6c"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="b8f8e616-b9d3-4700-8c2d-1845b8d57f80"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

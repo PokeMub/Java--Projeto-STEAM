@@ -15,27 +15,22 @@
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="14.0" layoutY="48.0" text="CPF :">
+      <Label layoutX="15.0" layoutY="94.0" text="CPF :">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="14.0" layoutY="84.0" text="Data de Nascimento :">
+      <Label layoutX="16.0" layoutY="131.0" text="Data de Nascimento :">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="14.0" layoutY="123.0" text="Email :">
+      <Label layoutX="15.0" layoutY="165.0" text="Email :">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="14.0" layoutY="163.0" text="Senha :">
-         <font>
-            <Font name="System Bold Italic" size="15.0" />
-         </font>
-      </Label>
-      <Label layoutX="14.0" layoutY="201.0" text="Confirmar Senha :">
+      <Label layoutX="14.0" layoutY="198.0" text="Senha :">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
@@ -45,14 +40,19 @@
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Button layoutX="126.0" layoutY="369.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="95.0" text="Inserir" />
-      <Button layoutX="362.0" layoutY="369.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="95.0" text="Voltar" />
-      <TextField layoutX="78.0" layoutY="12.0" prefHeight="25.0" prefWidth="222.0" />
-      <TextField layoutX="68.0" layoutY="46.0" prefHeight="25.0" prefWidth="232.0" />
-      <TextField layoutX="68.0" layoutY="121.0" prefHeight="25.0" prefWidth="232.0" />
-      <TextField layoutX="92.0" layoutY="233.0" prefHeight="25.0" prefWidth="211.0" />
-      <PasswordField layoutX="78.0" layoutY="161.0" prefHeight="25.0" prefWidth="222.0" />
-      <PasswordField layoutX="153.0" layoutY="199.0" />
-      <DatePicker layoutX="167.0" layoutY="82.0" prefHeight="25.0" prefWidth="138.0" />
+      <Button fx:id="buttonInserir" layoutX="126.0" layoutY="369.0" mnemonicParsing="false" onAction="#clicarbuttonInserir" prefHeight="41.0" prefWidth="95.0" text="Inserir" />
+      <Button fx:id="buttonVoltar" layoutX="362.0" layoutY="369.0" mnemonicParsing="false" onAction="#clicarButtonVoltar" prefHeight="41.0" prefWidth="95.0" text="Voltar" />
+      <TextField fx:id="textname" layoutX="78.0" layoutY="12.0" prefHeight="25.0" prefWidth="222.0" />
+      <TextField fx:id="textcpf" layoutX="68.0" layoutY="92.0" prefHeight="25.0" prefWidth="232.0" />
+      <TextField fx:id="textemail" layoutX="68.0" layoutY="163.0" prefHeight="25.0" prefWidth="232.0" />
+      <TextField fx:id="texttelefone" layoutX="92.0" layoutY="233.0" prefHeight="25.0" prefWidth="211.0" />
+      <PasswordField fx:id="textsenha" layoutX="78.0" layoutY="196.0" prefHeight="25.0" prefWidth="222.0" />
+      <DatePicker fx:id="datedata" layoutX="168.0" layoutY="129.0" prefHeight="25.0" prefWidth="138.0" />
+      <TextField fx:id="textrestname" layoutX="110.0" layoutY="56.0" prefHeight="25.0" prefWidth="222.0" />
+      <Label layoutX="14.0" layoutY="58.0" prefHeight="21.0" prefWidth="95.0" text="Sobrenome :">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

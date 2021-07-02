@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafxtrabalhopoo.model.domain.Jogo;
 import javafxtrabalhopoo.model.domain.JogoComprado;
 import javafxtrabalhopoo.model.domain.Usuario;
 
@@ -100,7 +101,7 @@ public class JogoCompradoDao {
             stmt.setInt(2, id_jogo_comprado);
             
             stmt.execute();
-            System.out.println("Alterado");
+            
             
         } catch (SQLException ex) {
             Logger.getLogger(UsuarioDao.class.getName()).log(Level.SEVERE, null, ex);
@@ -115,7 +116,7 @@ public class JogoCompradoDao {
             stmt.setInt(1, id_jogo_comprado);
             
             stmt.execute();
-            System.out.println("Alterado");
+            
             
         } catch (SQLException ex) {
             Logger.getLogger(UsuarioDao.class.getName()).log(Level.SEVERE, null, ex);
@@ -150,6 +151,26 @@ public class JogoCompradoDao {
             Logger.getLogger(JogoCompradoDao.class.getName()).log(Level.SEVERE, null, ex);
         }
         return retorno;
+    }
+    
+    public boolean existe(Jogo jogo) {
+        String sql = "SELECT * FROM jogo_comprado WHERE id_jogo=?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+
+            stmt.setInt(1, jogo.getIdJogo());
+            
+            ResultSet resultado = stmt.executeQuery();
+            if (resultado.next()) {
+                return true;
+            }else{
+                return false;
+            }
+
+        } catch (Exception e) {
+            Logger.getLogger(JogoDao.class.getName()).log(Level.SEVERE, null, e);
+        }
+        return true;
     }
 
 }

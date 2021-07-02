@@ -85,12 +85,12 @@ public class MenuUsuarioLojaOnlineComprarController implements Initializable {
 
         labelNome.setText(jogo.getNome());
         labelIdade.setText(String.valueOf(jogo.getRestricaoIdade()));
-        labelValor.setText(String.valueOf(jogo.getValor()));
+        labelValor.setText(String.valueOf(jogo.getValorDesconto()));
         labelTempo.setText(String.valueOf(jogo.getTempoEstimado()));
         labelData.setText(String.valueOf(jogo.getDateCriacao()));
         labelGenero.setText(String.valueOf(jogo.getGeneroNome()));
         labelValorAntes.setText(String.valueOf(usuario.getValorCarteira()));
-        labelValorDepois.setText(String.valueOf(usuario.getValorCarteira() - jogo.getValor()));
+        labelValorDepois.setText(String.valueOf(usuario.getValorCarteira() - jogo.getValorDesconto()));
     }
 
     public Jogo getJogo() {
@@ -102,12 +102,10 @@ public class MenuUsuarioLojaOnlineComprarController implements Initializable {
     }
     
     public void clicaConfiamr(){
-        System.out.println("Comprado");
-        int id = getUsuario().getIdUsuario();
-        double valor = getUsuario().getValorCarteira() - getJogo().getValor();
-        usuarioDao.alterarCateira(id + 1, valor);
+        double valor = getUsuario().getValorCarteira() - getJogo().getValorDesconto();
+        usuarioDao.alterarCateira(getUsuario().getIdUsuario(), valor);
         jogoDao.alterarQtd(getJogo().getIdJogo(), getJogo().getQtdVendida() + 1);
-        jogoCompradoDao.inserir(getUsuario().getIdUsuario(), getJogo().getIdJogo(), getJogo().getValor());
+        jogoCompradoDao.inserir(getUsuario().getIdUsuario(), getJogo().getIdJogo(), getJogo().getValorDesconto());
         
         this.setValorFinal(valor);
         

@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafxtrabalhopoo.model.domain.Genero;
@@ -65,4 +67,57 @@ public class GeneroDao {
         }
         return retorno;
     }
+    
+    public List<Genero> list() throws SQLException {
+        String sql = "SELECT * FROM genero";
+        List<Genero> retorno = new ArrayList<>();
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            ResultSet resultado = stmt.executeQuery();
+            while (resultado.next()) {
+                Genero genero = new Genero();
+
+                
+                genero.setNome(resultado.getString("nome_genero"));
+                genero.setDescricao(resultado.getString("descricao"));
+                genero.setIdGenero(resultado.getInt("id_genero"));
+
+                retorno.add(genero);
+            }
+        } catch (SQLException e) {
+            Logger.getLogger(GeneroDao.class.getName()).log(Level.SEVERE, null, e);
+        }
+        return retorno;
+
+    }
+    
+    public void inserir(Genero genero) {
+        String sql = "INSERT INTO genero(nome_genero, descricao) VALUES(?,?)";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, genero.getNome());
+            stmt.setString(2, genero.getDescricao());
+            stmt.execute();
+        } catch (SQLException ex) {
+            Logger.getLogger(GeneroDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                        
+    }
+    
+    public boolean alterar(Genero genero) {
+        String sql = "UPDATE genero SET nome_genero=?, descricao=? WHERE id_genero=?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, genero.getNome());
+            stmt.setString(2, genero.getDescricao());
+            stmt.setInt(3, genero.getIdGenero());
+
+            stmt.execute();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(EventoDao.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
+    
 }

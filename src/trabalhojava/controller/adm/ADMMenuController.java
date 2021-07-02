@@ -39,8 +39,9 @@ public class ADMMenuController implements Initializable {
 
     @FXML
     private AnchorPane anchorPane;
-    
+
     private Usuario usuario;
+
     /*
     private final Database database = DatabaseFactory.getDatabase("postgresql");
     private final Connection connection = database.conectar();
@@ -82,48 +83,34 @@ public class ADMMenuController implements Initializable {
 
     @FXML
     public void clicarbuttonGraficos() throws IOException {
-        
+
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/trabalhojava/view/adm/ADMMenuGraficosTodosJogos.fxml"));
+            AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/trabalhojava/view/adm/ADMMenuGraficosTodosJogos.fxml"));
 
-            Stage stage = new Stage();
-
-            Scene scene = new Scene(root);
-
-            stage.setScene(scene);
-            stage.show();
-
-       
+            anchorPaneMenu.getChildren().setAll(a);
 
         } catch (IOException e) {
             System.out.println("ERRO RegistroController: " + e);
         }
-        
-       // AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/trabalhojava/view/adm/ADMMenuGraficosTodosJogos.fxml"));
-       // anchorPane.getChildren().setAll(a);
+
+        // AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/trabalhojava/view/adm/ADMMenuGraficosTodosJogos.fxml"));
+        // anchorPane.getChildren().setAll(a);
     }
 
     @FXML
     public void clicarbuttonRelatorio() throws IOException {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/trabalhojava/view/adm/ADMMenuRelatorioTodosJogos.fxml"));
+            AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/trabalhojava/view/adm/ADMMenuRelatorioTodosJogos.fxml"));
 
-            Stage stage = new Stage();
-
-            Scene scene = new Scene(root);
-
-            stage.setScene(scene);
-            stage.show();
-
-       
+            anchorPaneMenu.getChildren().setAll(a);
 
         } catch (IOException e) {
             System.out.println("ERRO RegistroController: " + e);
         }
     }
-    
-    public void setUsuario(Usuario usuario){
+
+    public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-    
+
 }

@@ -14,6 +14,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -53,7 +54,7 @@ public class MenuLoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        System.out.println("Iniciando");
+
 
         /*teste se ta funcionado pode apaga depois \/\/ */
     }
@@ -97,10 +98,7 @@ public class MenuLoginController implements Initializable {
             
             usuario = usuarioDao.buscarEmail(usuario);
             
-            System.out.println(usuario.getEmail());
-            System.out.println(usuario.getSenha());
-            System.out.println(usuario.getStatus());
-            System.out.println(""+ usuario.getTelefone());
+
 
             if ((usuario.getEmail().equals(textFieldLogin.getText())) && (usuario.getSenha().equals(textFieldSenha.getText()))) {
                 try {
@@ -139,30 +137,16 @@ public class MenuLoginController implements Initializable {
 
                     }
 
-                    
-                    
-                    
 
-                    
-                
-                     
-
-                   
-                    
-                    
-                    /*
-                    Stage stage = new Stage();
-                    Scene scene = new Scene(root);
-                    stage.setScene(scene);
-                    stage.show();
-
-                    clicaButtonSair();
-                        */
                 } catch (IOException e) {
                     System.out.println("ERRO LoginController: " + e);
                 }
             } else {
-                System.out.println("Conta Invalida");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erro");
+            alert.setHeaderText("Conta Invalida.");
+
+            alert.show();
             }
 
         } catch (Exception e) {

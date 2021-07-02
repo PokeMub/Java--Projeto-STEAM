@@ -41,10 +41,7 @@ public class MenuUsuarioController implements Initializable {
 
     
     private Usuario usuario;
-    /*
-    private final Database database = DatabaseFactory.getDatabase("postgresql");
-    private final Connection connection = database.conectar();
-     */
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
@@ -73,9 +70,7 @@ public class MenuUsuarioController implements Initializable {
     @FXML
     public void clicarButtonInformacoes() throws IOException {
         try {
-            
-            System.out.println("usuario: "+ usuario.getEmail());
-         
+ 
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MenuUsuarioInformacoesUsuarioController.class.getResource("/trabalhojava/view/MenuUsuarioInformacoesUsuario.fxml"));
             //root = FXMLLoader.load(getClass().getResource("/trabalhojava/view/MenuUsuario.fxml"));
@@ -88,13 +83,7 @@ public class MenuUsuarioController implements Initializable {
 
             controller.setUsuario(usuario);
             anchorPaneMenu.getChildren().setAll(page);
-            //dialogStage.showAndWait(); apaga tudo q tive aver com essa linha
-            
-            
-            
-            
-            //AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/trabalhojava/view/MenuUsuarioInformacoesUsuario.fxml"));
-            //anchorPaneMenu.getChildren().setAll(a);
+
         } catch (IOException e) {
             System.out.println("Erro no FXMLVBoxMainController " + e);
         }
@@ -103,8 +92,6 @@ public class MenuUsuarioController implements Initializable {
     @FXML
     public void clicarButtonJogos() throws IOException {
         try {
-            System.out.println("usuario: "+ usuario.getEmail());
-            System.out.println("usuarioId: "+ usuario.getIdUsuario());
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MenuUsuarioBibliotecaJogosController.class.getResource("/trabalhojava/view/MenuUsuarioBibliotecaJogos.fxml"));
             //root = FXMLLoader.load(getClass().getResource("/trabalhojava/view/MenuUsuario.fxml"));
@@ -126,8 +113,7 @@ public class MenuUsuarioController implements Initializable {
     @FXML
     public void clicarButtonRelatorio() throws IOException {
         try {
-            System.out.println("usuario: "+ usuario.getEmail());
-            System.out.println("usuarioId: "+ usuario.getIdUsuario());
+
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MenuUsuarioRelatorioController.class.getResource("/trabalhojava/view/MenuUsuarioRelatorio.fxml"));
             //root = FXMLLoader.load(getClass().getResource("/trabalhojava/view/MenuUsuario.fxml"));

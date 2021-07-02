@@ -3,7 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="470.0" prefWidth="595.0" style="-fx-background-color: #EBEBEA;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trabalhojava.controller.adm.ADMMenuCadastroController">
+<AnchorPane id="AnchorPane" fx:id="anchorPaneMenu" prefHeight="470.0" prefWidth="595.0" style="-fx-background-color: #EBEBEA;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trabalhojava.controller.adm.ADMMenuCadastroController">
    <children>
       <Button fx:id="buttonEvento" layoutX="39.0" layoutY="23.0" mnemonicParsing="false" onAction="#clicarButtonEvento" prefHeight="68.0" prefWidth="239.0" text="Eventos" />
       <Button fx:id="buttonProdutos" layoutX="39.0" layoutY="109.0" mnemonicParsing="false" onAction="#clicarButtonProdutos" prefHeight="68.0" prefWidth="239.0" text="Produtos" />

@@ -15,6 +15,7 @@ public class Jogo {
     private char statu;
     private Date dateCriacao;
     private String GeneroNome;
+    private double valorDesconto;
     
     public Jogo(){
     }
@@ -113,6 +114,14 @@ public class Jogo {
 
     public void setGeneroNome(String GeneroNome) {
         this.GeneroNome = GeneroNome;
+    }
+
+    public double getValorDesconto() {
+        return valorDesconto;
+    }
+
+    public void setValorDesconto(double valorDesconto) {
+        this.valorDesconto = valorDesconto;
     }
     
 }

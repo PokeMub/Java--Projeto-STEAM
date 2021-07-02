@@ -1,25 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="470.0" prefWidth="595.0" style="-fx-background-color: #EBEBEA;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trabalhojava.controller.MenuUsuarioRelatorioController">
    <children>
-      <TableView fx:id="tableViewRelatorio" prefHeight="395.0" prefWidth="600.0">
+      <TableView fx:id="tableViewRelatorio" prefHeight="470.0" prefWidth="600.0">
         <columns>
           <TableColumn fx:id="tableColoumnNome" prefWidth="176.0" text="Nome" />
           <TableColumn fx:id="tableColoumnGeneroJogo" prefWidth="96.0" text="Genero Do Jogo" />
-            <TableColumn fx:id="tableColoumnReembolso" prefWidth="116.0" text="Status De Reebolso" />
+            <TableColumn fx:id="tableColoumnReembolso" prefWidth="116.0" text="Status " />
             <TableColumn fx:id="tableColoumnValor" prefWidth="104.0" text="Valor" />
             <TableColumn fx:id="tableColoumnDataCompra" prefWidth="107.20001220703125" text="Data De Compra" />
         </columns>
       </TableView>
-      <Button layoutX="225.0" layoutY="405.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Imprimir">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font></Button>
    </children>
 </AnchorPane>

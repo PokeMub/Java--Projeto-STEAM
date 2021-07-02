@@ -14,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 /**
@@ -31,86 +32,59 @@ public class ADMMenuCadastroController implements Initializable {
     private Button buttonEvento;
     @FXML
     private Button buttonGenero;
-    
+    @FXML
+    private AnchorPane anchorPaneMenu;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
+    }
+
     @FXML
     public void clicarButtonFuncionario() throws IOException {
-        
+
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/trabalhojava/view/adm/ADMMenuCadastroFuncionario.fxml"));
-
-            Stage stage = new Stage();
-
-            Scene scene = new Scene(root);
-
-            stage.setScene(scene);
-            stage.show();
-
-       
+            AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/trabalhojava/view/adm/ADMMenuCadastroFuncionario.fxml"));
+            anchorPaneMenu.getChildren().setAll(a);
 
         } catch (IOException e) {
             System.out.println("ERRO RegistroController: " + e);
         }
     }
-    
+
     @FXML
     public void clicarButtonProdutos() throws IOException {
-        
+
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/trabalhojava/view/adm/ADMMenuCadastroProduto.fxml"));
+            AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/trabalhojava/view/adm/ADMMenuCadastroProduto.fxml"));
 
-            Stage stage = new Stage();
-
-            Scene scene = new Scene(root);
-
-            stage.setScene(scene);
-            stage.show();
-
-       
+            anchorPaneMenu.getChildren().setAll(a);
 
         } catch (IOException e) {
             System.out.println("ERRO RegistroController: " + e);
         }
     }
-    
+
     @FXML
     public void clicarButtonEvento() throws IOException {
-        
+
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/trabalhojava/view/adm/ADMMenuCadastroEvento.fxml"));
+            AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/trabalhojava/view/adm/ADMMenuCadastroEvento.fxml"));
 
-            Stage stage = new Stage();
-
-            Scene scene = new Scene(root);
-
-            stage.setScene(scene);
-            stage.show();
-
-       
+            anchorPaneMenu.getChildren().setAll(a);
 
         } catch (IOException e) {
             System.out.println("ERRO RegistroController: " + e);
         }
     }
-    
+
     @FXML
     public void clicarButtonGenero() throws IOException {
-        
+
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/trabalhojava/view/adm/ADMMenuCadastroGenero.fxml"));
+            AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/trabalhojava/view/adm/ADMMenuCadastroGenero.fxml"));
 
-            Stage stage = new Stage();
-
-            Scene scene = new Scene(root);
-
-            stage.setScene(scene);
-            stage.show();
-
-       
+            anchorPaneMenu.getChildren().setAll(a);
 
         } catch (IOException e) {
             System.out.println("ERRO RegistroController: " + e);

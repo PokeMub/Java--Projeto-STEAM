@@ -1,0 +1,166 @@
+CREATE TABLE evento (
+	id_evento 		SERIAL 					NOT NULL,
+	nome_evento 	VARCHAR(100) 			NOT NULL,
+	valor_desconto	NUMERIC(11,2)			NOT	NULL,
+	forma_desconto	CHAR(20)				NOT NULL,
+	statu_evento	CHAR(1)					NOT	NULL,
+	data_inicio		DATE					NOT	NULL,
+	data_termino	DATE					NOT	NULL,
+	CONSTRAINT	pk_evento
+		PRIMARY KEY(id_evento)
+);
+
+CREATE TABLE genero(
+	id_genero	SERIAL				NOT NULL,
+	nome_genero	CHAR(20)			NOT	NULL,
+	descricao	VARCHAR(300)		NOT	NULL,
+	CONSTRAINT 	pk_genero
+		PRIMARY	KEY(id_genero)
+);
+
+CREATE TABLE usuario(
+	id_usuario		SERIAL			NOT	NULL,
+	nome_usuario	CHAR(20)		NOT	NULL,
+	rest_nome		VARCHAR(80)		NOT	NULL,
+	cpf				CHAR(11)		NOT	NULL,
+	data_nasc		DATE			NOT NULL,
+	senha			VARCHAR(20)		NOT	NULL,
+	tel				CHAR(20)		NOT	NULL,
+	statu			CHAR(1)			NOT	NULL,
+	email			VARCHAR(100)	NOT	NULL,
+	valor_carteira	NUMERIC(11,2)	NOT	NULL,
+	CONSTRAINT pk_usuario
+		PRIMARY KEY(id_usuario)
+);
+
+CREATE TABLE ad_dinheiro(
+	id_ad_dinheiro		SERIAL			NOT	NULL,
+	id_usuario			INTEGER			NOT NULL,
+	num_cartao			CHAR(20)		NOT	NULL,
+	validade			CHAR(20)		NOT	NULL,
+	cod_seguranca		CHAR(20)		NOT	NULL,
+	valor				NUMERIC(11,2)	NOT	NULL,
+	data_transacao		DATE			NOT	NULL,
+	nome_portador		VARCHAR(200)	NOT	NULL,
+	CONSTRAINT pk_ad_dinheiro
+		PRIMARY	KEY(id_ad_dinheiro),
+	CONSTRAINT fk_ad_dinheiro_usuario
+		FOREIGN	KEY(id_usuario)
+		REFERENCES usuario(id_usuario)
+);
+
+CREATE TABLE jogo(
+	id_jogo			SERIAL			NOT	NULL,
+	id_genero		INTEGER 		NOT	NULL,
+	id_evento		INTEGER			NOT	NULL,
+	id_usuario		INTEGER			NOT	NULL,
+	qtd_vend_jogo	INTEGER			NOT	NULL,
+	restricao_idade	INTEGER			NOT	NULL,
+	valor			NUMERIC(6,2)	NOT	NULL,
+	tempo_estimado	INTEGER			NOT	NULL,
+	nome			VARCHAR(90)		NOT	NULL,
+	statu_jogo		CHAR(1)			NOT	NULL,
+	data_criacao	DATE			NOT	NULL,
+	CONSTRAINT	pk_jogo
+		PRIMARY	KEY(id_jogo),
+	CONSTRAINT	fk_jogo_genero
+		FOREIGN KEY(id_genero)
+		REFERENCES genero(id_genero),
+	CONSTRAINT	fk_jogo_evento
+		FOREIGN KEY(id_evento)
+		REFERENCES evento(id_evento),
+	CONSTRAINT	fk_jogo_usuario
+		FOREIGN KEY(id_usuario)
+		REFERENCES usuario(id_usuario)
+);
+
+CREATE TABLE log_cadast_jogo(
+	id_log_cadast_jogo		SERIAL			NOT	NULL,
+	id_jogo					INTEGER			NOT	NULL,
+	
+	data_cadastro			DATE			NOT	NULL,
+	hora_cadastro			TIME			NOT	NULL,
+	id_usuario_cadastrou	INTEGER			NOT	NULL,			
+	CONSTRAINT	pk_log_cadast_jogo
+		PRIMARY	KEY(id_log_cadast_jogo),
+	CONSTRAINT	fk_log_cadast_jogo_jogo
+		FOREIGN KEY(id_jogo)
+		REFERENCES jogo(id_jogo)
+);
+
+CREATE TABLE jogo_comprado(
+	id_jogo_comprado		SERIAL			NOT	NULL,
+	id_usuario				INTEGER			NOT	NULL,
+	id_jogo					INTEGER			NOT	NULL,
+	qtd_hora_jogada			INTEGER			NOT	NULL,
+	valor_produto			NUMERIC(6,2)	NOT	NULL,
+	statu_reembouso			CHAR(1)			NOT	NULL,
+	data_compra				DATE			NOT	NULL,
+	hora_compra				TIME			NOT	NULL,
+	CONSTRAINT	pk_jogo_comprado
+		PRIMARY	KEY(id_jogo_comprado),
+	CONSTRAINT	fk_jogo_comprado_usuario
+		FOREIGN KEY(id_usuario)
+		REFERENCES usuario(id_usuario),
+	CONSTRAINT	fk_jogo_comprado_jogo
+		FOREIGN KEY(id_jogo)
+		REFERENCES jogo(id_jogo)
+);
+
+INSERT INTO genero(nome_genero,descricao)
+	VALUES	('terror','jogo que possui muito sangue e sustos'),
+	 		('aventuro','jogo que possui muitas aventuras e desafios a se encara pela frente'),
+			('FPS','jogo de tiro com muitas armas'),
+			('RPG','jogo de pessoas inteligentes com varias estrategias'),
+			('MOBA','jogo em 3 pessoa com utilizacao de estragias');
+			
+INSERT INTO evento(nome_evento, valor_desconto, forma_desconto ,statu_evento ,data_inicio ,data_termino)
+	VALUES	('Dia Namorados',20.00,'flat','A','2021-06-11','2021-08-11'),
+	 		('halloween',20.00,'%','A','2021-06-11','2021-08-17');
+			
+			
+INSERT INTO usuario(nome_usuario, rest_nome, cpf, data_nasc, senha, tel, statu, email, valor_carteira)
+	VALUES	('Fabricio','Colodette Louzada','12346734598','2001-02-08','123','55 28 999564786', 'a','fabricio@gmail.com','00.00'),
+			('Lucas','Guizzi Costa Longa','12356783498','2000-04-29','123','55 28 999550987','u','pokemubnub@gmail.com','00.00');
+			
+
+INSERT INTO ad_dinheiro(id_usuario, num_cartao, validade, cod_seguranca, valor, data_transacao, nome_portador)
+	VALUES (2,'1234567891234567','2022-08-11','123',100.00,'2021-06-11','Lucas Guizzi Costa Longa'),
+		   (2,'1234567891234567','2022-08-11','123',300.00,'2021-06-11','Lucas Guizzi Costa Longa'),
+		   (2,'1234567891234567','2022-08-11','123',800.00,'2021-06-11','Lucas Guizzi Costa Longa'),
+		   (2,'1234567891234567','2022-08-11','123',80.00,'2021-06-11','Lucas Guizzi Costa Longa');
+		  
+UPDATE usuario
+SET valor_carteira = 1280.00
+	WHERE id_usuario =2;
+
+INSERT INTO evento(nome_evento, valor_desconto, forma_desconto ,statu_evento ,data_inicio ,data_termino)
+	VALUES	('Nenhum',0,'flat','A','2021-06-11','2999-08-11');
+	
+INSERT INTO jogo(id_genero, id_evento, id_usuario, qtd_vend_jogo, restricao_idade, valor, tempo_estimado, nome, statu_jogo, data_criacao)
+	VALUES 	(1,3,1,1,12,60.00,18,'Outlast','A','2013-10-07'),
+			(3,3,1,1,10,10.00,999,'counter strike global offensive','A','2012-09-21'),
+			(1,3,1,1,12,40.00,12,'The whit','A','2013-10-07'),
+			(1,3,1,1,12,30.00,19,'Blar The Whit','A','2013-10-07'),
+			(1,3,1,1,12,80.00,14,'Demon','A','2013-10-07'),
+			(1,3,1,1,12,20.00,120,'Ashe Fron Demon','A','2013-10-07'),
+			(1,3,1,1,12,05.00,14,'Slenderman','A','2013-10-07'),
+			(1,3,1,1,12,15.00,18,'Chorona','A','2013-10-07'),
+			(1,3,1,1,12,19.00,5,'Invocacao do mal','A','2013-10-07');
+			
+	
+INSERT INTO log_cadast_jogo(id_jogo,data_cadastro, hora_cadastro, id_usuario_cadastrou)
+	VALUES 	(1,'2021-06-11','16:57:34',1),
+			(2,'2021-06-11','16:58:23',1);
+			
+INSERT INTO jogo_comprado(id_usuario, id_jogo, qtd_hora_jogada, valor_produto, statu_reembouso, data_compra, hora_compra)
+	VALUES	(2,1,0,60.00,'A','2021-06-11','17:10:10'),
+			(2,2,0,10.00,'A','2021-06-11','17:11:57');
+			
+UPDATE usuario
+SET valor_carteira = 1210.00
+	WHERE id_usuario =2;
+
+
+CREATE USER lucas SUPERUSER INHERIT CREATEDB CREATEROLE; 
+ALTER USER lucas PASSWORD '123';
